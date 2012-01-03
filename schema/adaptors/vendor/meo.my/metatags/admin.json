@@ -1,0 +1,16 @@
+{
+	"meo.my/metatags": {
+		"admin": {
+			"boilerplate": {
+				"admin_header_href": "http://www.w3.org/TR/html5/semantics.html#the-meta-element",
+				"admin_header1": "Meta tags",
+				"admin_double_click_edit2": "a meta tag item.",
+				"admin_input_placeholder": "abc yields contents of <meta name=abc>",
+				"admin_enter_to_save2": "meta tag item",
+				"admin_singular": "meta tag",
+				"admin_plural": "meta tags",
+				"admin_ok_to_reset2": "meta tag items."
+			}
+		}
+	}
+}

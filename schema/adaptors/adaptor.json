@@ -1,0 +1,446 @@
+{
+	"schemas": [
+		{
+			"id": "http://meo.my/versions/0.1.7/json-schema/adaptor",
+			"$schema": "http://json-schema.org/draft-03/schema#",
+			"title": "Permitted JSON Schema of any adaptor",
+			"description": "Every adaptor, whether vendor supplied or user generated, is validated against this schema in the web form, at the time its model is stored. Each stored adaptor is also validated at the time of backround process initialisation. This schema is used at run time to provide processing logic and default values to the adaptor processor running in the background.",
+			"type": "object",
+			"required": true,
+			"properties": {
+				"html": {
+					"$ref": "http://meo.my/versions/0.1.7/json-schema/adaptor/html"
+				},
+				"url": {
+					"$ref": "http://meo.my/versions/0.1.7/json-schema/adaptor/url"
+				},
+				"localStorage": {
+					"$ref": "http://meo.my/versions/0.1.7/json-schema/adaptor/localStorage"
+				},
+				"browser": {
+					"$ref": "http://meo.my/versions/0.1.7/json-schema/adaptor/browser"
+				}
+			},
+			"additionalProperties": false
+		}, {
+			"id": "http://meo.my/versions/0.1.7/json-schema/adaptor/url",
+			"$schema": "http://json-schema.org/draft-03/schema#",
+			"title": "URL components",
+			"description": "Specification of properties of URL components",
+			"type": "object",
+			"properties": {
+				"full": {
+					"$ref": "http://meo.my/versions/0.1.7/json-schema/adaptor/url/full"
+				},
+				"scheme": {
+					"$ref": "http://meo.my/versions/0.1.7/json-schema/adaptor/url/scheme"
+				},
+				"host": {
+					"$ref": "http://meo.my/versions/0.1.7/json-schema/adaptor/url/host"
+				},
+				"path": {
+					"$ref": "http://meo.my/versions/0.1.7/json-schema/adaptor/url/path"
+				},
+				"query": {
+					"$ref": "http://meo.my/versions/0.1.7/json-schema/adaptor/url/query"
+				},
+				"hash": {
+					"$ref": "http://meo.my/versions/0.1.7/json-schema/adaptor/url/hash"
+				}
+			},
+			"additionalProperties": false
+		}, {
+			"id": "http://meo.my/versions/0.1.7/json-schema/adaptor/url/full",
+			"$schema": "http://json-schema.org/draft-03/schema#",
+			"title": "full url",
+			"type": "boolean",
+			"additionalProperties": false
+		}, {
+			"id": "http://meo.my/versions/0.1.7/json-schema/adaptor/url/scheme",
+			"$schema": "http://json-schema.org/draft-03/schema#",
+			"title": "url scheme",
+			"type": "boolean",
+			"default": true
+		}, {
+			"id": "http://meo.my/versions/0.1.7/json-schema/adaptor/url/host",
+			"$schema": "http://json-schema.org/draft-03/schema#",
+			"title": "url host",
+			"type": "object",
+			"properties": {},
+			"additionalProperties": false
+		}, {
+			"id": "http://meo.my/versions/0.1.7/json-schema/adaptor/url/path",
+			"$schema": "http://json-schema.org/draft-03/schema#",
+			"title": "url path",
+			"type": "object",
+			"properties": {},
+			"additionalProperties": false
+		}, {
+			"id": "http://meo.my/versions/0.1.7/json-schema/adaptor/url/query",
+			"$schema": "http://json-schema.org/draft-03/schema#",
+			"title": "url query components",
+			"type": "object",
+			"properties": {
+				"full": {
+					"title": "full query string",
+					"description": "use the entire string of query parameters including special characters (?, &, = and ;) ?",
+					"type": "boolean",
+					"default": true
+				},
+				"parameters": {
+					"title": "url query parameters",
+					"description": "structure and default values for processing url query parameters",
+					"type": "object",
+					"properties": {
+						"lower_case": {
+							"title": "convert to lower case",
+							"description": "if true, convert parameters to all lower case for any applicable character set",
+							"type": "boolean",
+							"default": false
+						},
+						"strip_ws": {
+							"title": "strip white space",
+							"description": "if true, remove leading and trailing whitespace character(s)",
+							"type": "boolean",
+							"default": true
+						},
+						"decode": {
+							"title": "decode parameters",
+							"description": "if true, decode any URL encoded query parameter values e.g. ?val=%2cyes gives ,yes",
+							"type": "boolean",
+							"default": true
+						},
+						"max": {
+							"title": "maximum number of parameters",
+							"description": "maximum number of query parameters to be used (in order from leftmost). false implies unlimited.",
+							"type": ["number", "boolean"],
+							"default": false
+						},
+						"splitter": {
+							"title": "split a value",
+							"description": "character(s) which splits a query value if used e.g. &q=json+query+default gives [json,query,default]",
+							"type": ["string", "array", "boolean"],
+							"items": {
+								"type": "string"
+							},
+							"default": false
+						},
+						"keys": {
+							"title": "url query keys",
+							"description": "key names e.g. for ?id=5678&name=zeberdee the keys array is [id,name]",
+							"type": "object",
+							"properties": {
+								"use": {
+									"title": "include parameter keys",
+									"description": "use parameter keys as well as values ? e.g. ?id=5678&name=zeberdee gives [id,5678,name,zeberdee]",
+									"type": "boolean",
+									"default": false
+								},
+								"matching": {
+									"title": "Restrict parameter keys to those matching",
+									"description": "Exclude query parameters whose keys do not match this regular expression. false implies no pattern matching constraint. true implies match to global wildcard '/^*$/'",
+									"type": ["string", "boolean"],
+									"format": "regex",
+									"default": false
+								}
+							},
+							"additionalProperties": false
+						},
+						"completion": {
+							"$ref": "http://meo.my/versions/0.1.7/json-schema/adaptor/global/completion"
+						}
+					},
+					"additionalProperties": false
+				}
+			},
+			"additionalProperties": false
+		}, {
+			"id": "http://meo.my/versions/0.1.7/json-schema/adaptor/url/hash",
+			"$schema": "http://json-schema.org/draft-03/schema#",
+			"title": "url hash",
+			"type": "object",
+			"properties": {},
+			"additionalProperties": false
+		}, {
+			"id": "http://meo.my/versions/0.1.7/json-schema/adaptor/html",
+			"$schema": "http://json-schema.org/draft-03/schema#",
+			"title": "HTML tags",
+			"description": "Specification of properties of HTML tags",
+			"type": "object",
+			"properties": {
+				"selectors": {
+					"type": "array",
+					"items": {
+						"type": {
+							"$ref": "http://meo.my/versions/0.1.7/json-schema/adaptor/html/selector"
+						}
+					}
+				},
+				"extractor": {
+					"$ref": "http://meo.my/versions/0.1.7/json-schema/adaptor/html/extractor"
+				}
+			},
+			"additionalProperties": false
+		}, {
+			"id": "http://meo.my/versions/0.1.7/json-schema/adaptor/html/selector",
+			"$schema": "http://json-schema.org/draft-03/schema#",
+			"title": "HTML tag selectors",
+			"description": "Specification HTML tag selectors. Which html tags to extract meta data from.",
+			"type": "object",
+			"properties": {
+				"tags": {
+					"type": "array",
+					"items": {
+						"type": {
+							"$ref": "http://meo.my/versions/0.1.7/json-schema/adaptor/html/tag"
+						}
+					}
+				},
+				"options": {
+					"title": "Selector options",
+					"description": "Options available to the html selector",
+					"type": "object",
+					"properties": {
+						"option1": {
+							"title": "option 1",
+							"type": "boolean",
+							"default": true
+						}
+					},
+					"additionalProperties": false
+				}
+			},
+			"additionalProperties": false
+		}, {
+			"id": "http://meo.my/versions/0.1.7/json-schema/adaptor/html/extractor",
+			"$schema": "http://json-schema.org/draft-03/schema#",
+			"title": "HTML tag extractors",
+			"description": "Specification of HTML tag extractors. How to extract meta data from a selected html tag.",
+			"type": "object",
+			"properties": {
+				"attribute": {
+					"$ref": "http://meo.my/versions/0.1.7/json-schema/adaptor/html/tag/attribute"
+				},
+				"options": {
+					"title": "Extractor options",
+					"description": "Options available to the html extractor",
+					"type": "object",
+					"properties": {
+						"separators": {
+							"title": "",
+							"description": "Tag values may be split with these characters",
+							"type": "array",
+							"default": [","]
+						},
+						"names": {
+							"type": "object",
+							"properties": {
+								"tagnames": {
+									"title": "Tag names",
+									"description": "Extract the name of a selected tag ? e.g. 'meta'",
+									"type": "boolean",
+									"default": false
+								},
+								"executor": {
+									"title": "Tag names executor",
+									"description": "Specifies an extractor function for the name of a selected tag",
+									"type": {
+										"$ref": "http://meo.my/versions/0.1.7/json-schema/function"
+									}
+								}
+							},
+							"additionalProperties": false
+						},
+						"attnames": {
+							"title": "Attribute names",
+							"description": "Extract the name of selected attibutes ? e.g. 'author'",
+							"type": "boolean",
+							"default": true
+						}
+					},
+					"additionalProperties": false
+				}
+			},
+			"additionalProperties": false
+		}, {
+			"id": "http://meo.my/versions/0.1.7/json-schema/adaptor/html/tag",
+			"$schema": "http://json-schema.org/draft-03/schema#",
+			"title": "HTML tag",
+			"description": "Specification of a HTML tag",
+			"type": "object",
+			"properties": {
+				"name": {
+					"title": "tag name",
+					"description": "Specification of a html tag name",
+					"enum": ["meta", "href", "a"],
+					"type": "string",
+					"required": true
+				},
+				"attribute": {
+					"$ref": "http://meo.my/versions/0.1.7/json-schema/adaptor/html/tag/attribute"
+				},
+				"options": {
+					"type": "object",
+					"properties": {},
+					"additionalProperties": false
+				}
+			},
+			"additionalProperties": false
+		}, {
+			"id": "http://meo.my/versions/0.1.7/json-schema/adaptor/html/tag/attribute",
+			"$schema": "http://json-schema.org/draft-03/schema#",
+			"title": "tag attributes",
+			"description": "Specification of tag attributes",
+			"type": "object",
+			"properties": {
+				"key": {
+					"title": "attribute key name",
+					"description": "Names of tag attributes",
+					"type": "string",
+					"enum": ["name", "author", "title", "keywords", "generator", "application-name", "formatter", "classification", "copyright", "rating", "content-type", "geo.region", "geo.placename", "geo.position", "content", "description"],
+					"required": true
+				},
+				"value": {
+					"title": "value of attribute",
+					"description": "Regular expression to match the value of attributes. true implies all attribute values. false implies do not match value.",
+					"type": ["boolean", "string"],
+					"format": "regex",
+					"default": true
+				}
+			},
+			"additionalProperties": false
+		}, {
+			"id": "http://meo.my/versions/0.1.7/json-schema/adaptor/localStorage",
+			"$schema": "http://json-schema.org/draft-03/schema#",
+			"title": "HTML5 Storage",
+			"description": "Values of Local Storage and Session Storage objects",
+			"type": "object",
+			"properties": {},
+			"additionalProperties": false
+		}, {
+			"id": "http://meo.my/versions/0.1.7/json-schema/adaptor/browser",
+			"$schema": "http://json-schema.org/draft-03/schema#",
+			"title": "Browser parameters",
+			"description": "Characteristics of the browser session, such as time of day or incognito mode",
+			"type": "object",
+			"properties": {},
+			"additionalProperties": false
+		}, {
+			"id": "http://meo.my/versions/0.1.7/json-schema/adaptor/global/completion",
+			"$schema": "http://json-schema.org/draft-03/schema#",
+			"title": "completion parameters",
+			"description": "Parameters to be inserted at the end of a results array in order to complete a power of two e.g. 7 actual results plus 1 completion parameter = 2^3 = 8. false implies no completion activity. true implies all tags are randomly generated. a tags array is also valid",
+			"type": ["object", "boolean"],
+			"default": false,
+			"properties": {
+				"tags": {
+					"description": "A pre-defined array of values used uniquely in indeterminate sequence. After tags array is exhausted, generate new completion parameter values at random.",
+					"type": "array",
+					"required": true,
+					"items": {
+						"type": "string"
+					}
+				}
+			},
+			"additionalProperties": false
+		}, {
+			"id": "http://meo.my/versions/0.1.7/json-schema/function",
+			"$schema": "http://json-schema.org/draft-03/schema#",
+			"title": "Function specification",
+			"description": "Specify a generic function",
+			"type": "object",
+			"properties": {
+				"circularParent": {
+					"title": "schema is circular if parent type",
+					"description": "Indicates to the schema parser not to continue a depth search if the parent object is one of the specified types",
+					"type": [
+						{
+							"$ref": "http://meo.my/versions/0.1.7/json-schema/function/arg"
+						}
+					]
+				},
+				"name": {
+					"title": "function name",
+					"description": "Specification of a function name",
+					"type": "string",
+					"required": true
+				},
+				"args": {
+					"title": "arg array",
+					"description": "Specification of function arguments",
+					"type": "array",
+					"items": {
+						"type": {
+							"$ref": "http://meo.my/versions/0.1.7/json-schema/function/arg"
+						}
+					},
+					"default": []
+				},
+				"return": {
+					"title": "return values",
+					"description": "Specification of function return values",
+					"type": {
+						"$ref": "http://meo.my/versions/0.1.7/json-schema/function/arg"
+					},
+					"default": null
+				}
+			},
+			"additionalProperties": false
+		}, {
+			"id": "http://meo.my/versions/0.1.7/json-schema/function/arg",
+			"$schema": "http://json-schema.org/draft-03/schema#",
+			"title": "Function arg specification",
+			"description": "Specify a generic function argument",
+			"type": ["number", "string", "boolean", {
+					"$ref": "http://meo.my/versions/0.1.7/json-schema/function/arg/object"
+				}, {
+					"$ref": "http://meo.my/versions/0.1.7/json-schema/function/arg/array"
+				}
+			]
+		}, {
+			"id": "http://meo.my/versions/0.1.7/json-schema/function/arg/object",
+			"$schema": "http://json-schema.org/draft-03/schema#",
+			"title": "object arg specification",
+			"description": "Specify a generic function argument of type object",
+			"type": "object",
+			"properties": {
+				"validator": {
+					"$ref": "http://meo.my/versions/0.1.7/json-schema/function/arg/validator"
+				}
+			},
+			"additionalProperties": false
+		}, {
+			"id": "http://meo.my/versions/0.1.7/json-schema/function/arg/array",
+			"$schema": "http://json-schema.org/draft-03/schema#",
+			"title": "array arg specification",
+			"description": "Specify a generic function argument of type array",
+			"type": "array",
+			"properties": {
+				"validator": {
+					"$ref": "http://meo.my/versions/0.1.7/json-schema/function/arg/validator"
+				}
+			},
+			"additionalProperties": false
+		}, {
+			"id": "http://meo.my/versions/0.1.7/json-schema/function/arg/validator",
+			"$schema": "http://json-schema.org/draft-03/schema#",
+			"title": "validate an arg",
+			"description": "Specify a generic validator for args of type object or array",
+			"type": "object",
+			"required": true,
+			"properties": {
+				"name": {
+					"title": "object name",
+					"description": "URI of validating JSON Schema for an arg of type object or array",
+					"type": "string"
+				},
+				"schema": {
+					"title": "Validating schema",
+					"description": "URI of validating JSON Schema for an arg of type object or array",
+					"type": "string"
+				}
+			},
+			"additionalProperties": false
+		}
+	]
+}

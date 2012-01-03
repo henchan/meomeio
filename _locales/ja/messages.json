@@ -1,0 +1,98 @@
+{
+	"bP_Examine": {
+		"message": "Examine",
+		"description": ""
+	},
+	"bP_Synch": {
+		"message": "Synch",
+		"description": "Search Remote DBs for Profile records. Refresh local DB if necessary"
+	},
+	"bP_Add_Below": {
+		"message": " Add Below",
+		"description": ""
+	},
+	"bP_Activate": {
+		"message": "Activate",
+		"description": ""
+	},
+	"bP_Reset": {
+		"message": "Reset",
+		"description": ""
+	},
+	"bP_Save": {
+		"message": "Save",
+		"description": ""
+	},
+	"disabledFeeds": {
+		"message": "Disable xxxy.as feeds",
+		"description": "Available feeds that have been disabled"
+	},
+	"synthesise": {
+		"message": "Synthesise ",
+		"description": "Perform Synthesis on the highlighted selection"
+	},
+	"omniboxUsage": {
+		"message": "Usage\n\t string : \n\t\t<meo String> synthesise 'String' (case preserved)\n\t\t<meo   a String  > synthesise 'a String' (leading, trailing white-space stripped)\n\tvalid JSON :\n\t\t<meo {'oos' : '  a String '}> synthesise '  a String ' (leading, trailing white-space preserved)\n\t\t<meo {'X' : {'oos' : 'two'}, 'Y' : {'oos' : 'Strings'}}> - synthesise 'two', synthesise 'Strings', Meiosis (1♥2)\n\t\t<meo {'X' : {'X' : {'oos' : '3'}, 'Y' : {'oos' : 'three'}}, 'Y' : {'X' : {'oos' : 'Strings'}}}> - synthesise '3', synthesise 'three',  Meiosis (1♥2), synthesise 'Strings', MateSelect (3), Meiosis (3♥4),  Meiosis",
+		"description": "Guidance on using Chromes omnibox to input"
+	},
+	"omniboxSynthSample": {
+		"message": "sample_string_0",
+		"description": "Synthesis of sample text string from Omnibox"
+	},
+	"omniboxMeioSample": {
+		"message": "{\"X\" : {\"oos\" : \"sample_string_1\"}, \"Y\" : {\"oos\" : \"sample_string_2\"}}",
+		"description": "Synthesis of sample text string from Omnibox"
+	},
+	"admin_header": {
+		"message": "administration",
+		"description": "Boilerpate 'Administration' on generic admin form"
+	},
+	"admin_double_click_edit": {
+		"message": "Double-click to edit ",
+		"description": "Boilerpate at the bottom of generic admin form"
+	},
+	"admin_enter_to_save": {
+		"message": "Press Enter to save this ",
+		"description": "Message while editing an item"
+	},
+	"admin_ok_to_reset1": {
+		"message": "Deletes custom settings and filter hit counts for all your ",
+		"description": "Message prompt before resetting all items"
+	},
+	"admin_ok_to_reset3": {
+		"message": " Go ahead ?",
+		"description": "Message prompt before resetting all items"
+	},
+	"admin_reset_all": {
+		"message": "Reset all",
+		"description": "Button text to reset all items"
+	},
+	"menu_adap_top": {
+		"message": "Adaptors",
+		"description": "Top menu for adaptors"
+	},
+	"menu_adap_modules": {
+		"message": "adaptor modules",
+		"description": ""
+	},
+	"menu_adap_all": {
+		"message": "all modules",
+		"description": ""
+	},
+	"menu_adap_active": {
+		"message": "active modules",
+		"description": ""
+	},
+	"menu_wbl": {
+		"message": "White / Black Lists",
+		"description": ""
+	},
+	"menu_wbl_wl_lev1": {
+		"message": "manage white lists",
+		"description": ""
+	},
+	"menu_wbl_bl_lev1": {
+		"message": "manage black lists",
+		"description": ""
+	}
+}

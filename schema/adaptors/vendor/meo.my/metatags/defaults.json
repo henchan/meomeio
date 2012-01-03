@@ -1,0 +1,10 @@
+{
+	"meo.my/metatags": [
+		{
+			"content": "{\"html\": {\"selectors\": [{\"tags\": [{\"name\": \"meta\",\"attribute\": {\"key\": \"name\",\"value\": \"keywords\"}}]}],\"extractor\": {\"attribute\": {\"key\": \"content\",\"value\": \"*\"},\"options\": {\"separators\": [\",\"]}}}}",
+			"inactive": false,
+			"hits": 0,
+			"id": "ee9d998f-f241-4348-a130-42a4f03139b0"
+		}
+	]
+}

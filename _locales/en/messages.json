@@ -1,0 +1,306 @@
+{
+	"bP_Examine": {
+		"message": "Examine",
+		"description": ""
+	},
+	"bP_Synch": {
+		"message": "Synch",
+		"description": "Search Remote DBs for Profile records. Refresh local DB if necessary"
+	},
+	"bP_Add_Below": {
+		"message": " Add Below",
+		"description": ""
+	},
+	"bP_Activate": {
+		"message": "Activate",
+		"description": ""
+	},
+	"bP_Reset": {
+		"message": "Reset",
+		"description": ""
+	},
+	"bP_Save": {
+		"message": "Save",
+		"description": ""
+	},
+	"disabledFeeds": {
+		"message": "Disable xxxy.as feeds",
+		"description": "Available feeds that have been disabled"
+	},
+	"synthesise": {
+		"message": "Synthesise ",
+		"description": "Perform Synthesis on the highlighted selection"
+	},
+	"omniboxUsage": {
+		"message": "Usage\n\t string : \n\t\t<meo String> synthesise 'String' (case preserved)\n\t\t<meo   a String  > synthesise 'a String' (leading, trailing white-space stripped)\n\tvalid JSON :\n\t\t<meo {'oos' : '  a String '}> synthesise '  a String ' (leading, trailing white-space preserved)\n\t\t<meo {'X' : {'oos' : 'two'}, 'Y' : {'oos' : 'Strings'}}> - synthesise 'two', synthesise 'Strings', Meiosis (1♥2)\n\t\t<meo {'X' : {'X' : {'oos' : '3'}, 'Y' : {'oos' : 'three'}}, 'Y' : {'X' : {'oos' : 'Strings'}}}> - synthesise '3', synthesise 'three',  Meiosis (1♥2), synthesise 'Strings', MateSelect (3), Meiosis (3♥4),  Meiosis",
+		"description": "Guidance on using Chromes omnibox to input"
+	},
+	"omniboxSynthSample": {
+		"message": "sample_string_0",
+		"description": "Synthesis of sample text string from Omnibox"
+	},
+	"omniboxMeioSample": {
+		"message": "{\"X\" : {\"oos\" : \"sample_string_1\"}, \"Y\" : {\"oos\" : \"sample_string_2\"}}",
+		"description": "Synthesis of sample text string from Omnibox"
+	},
+	"admin_modules_header": {
+		"message": "Adaptors",
+		"description": "Boilerpate header on modules admin form"
+	},
+	"admin_header": {
+		"message": "adaptor",
+		"description": "Boilerpate 'adaptor' on generic admin form"
+	},
+	"admin_double_click_edit": {
+		"message": "click a list button to edit ",
+		"description": "Boilerpate at the bottom of generic admin form"
+	},
+	"admin_invalid_namespace": {
+		"message": "invalid namespace/name",
+		"description": "Message while editing an item"
+	},
+	"admin_missing_file": {
+		"message": "warning. An expected file is missing  : ",
+		"description": "Message while editing an item"
+	},
+	"admin_enter_to_save": {
+		"message": "Press Enter to save this ",
+		"description": "Message while editing an item"
+	},
+	"admin_ok_to_reset1": {
+		"message": "Deletes custom settings and filter hit counts for all your ",
+		"description": "Message prompt before resetting all items"
+	},
+	"admin_ok_to_reset3": {
+		"message": " Go ahead ?",
+		"description": "Message prompt before resetting all items"
+	},
+	"admin_reset_all": {
+		"message": "Set Defaults",
+		"description": "Button text to reset all items"
+	},
+	"admin_invalid_json": {
+		"message": "Invalid JSON. See the browser's javascript console for details of the error.",
+		"description": "JSON validation error on lists"
+	},	
+	"admin_invalid_schema": {
+		"message": "Invalid lists schema. See the browser's javascript console for details of the error. Also, see Hint below",
+		"description": "Schema validation error on lists"
+	},		
+	
+	"lists_black_header": {
+		"message": "Black Lists",
+		"description": "Boilerpate header on black lists admin form"
+	},	
+	"lists_black_singular": {
+		"message": "Black List",
+		"description": "Boilerpate footer on black lists admin form"
+	},	
+	"lists_black_plural": {
+		"message": "Black Lists",
+		"description": "Boilerpate footer on black lists admin form"
+	},	
+	"lists_black_items": {
+		"message": "black list items",
+		"description": "Message on black lists admin form"
+	},	
+	"lists_black_hint": {
+		"message": "Hint",
+		"description": "Summary of Hint for black lists"
+	},	
+	"lists_black_hint_p1": {
+		"message": "These Black lists restrict access for all adaptors to any web page whose URL matches one or more values; for all specified components; in one or more of the active list items on this page.",
+		"description": "Line 1 of Hint for black lists"
+	},	
+	"lists_black_hint_p2_1": {
+		"message": "Each list must conform to the ",
+		"description": "Line 2 part 1 of Hint for black lists"
+	},	
+	"lists_black_hint_p2_2": {
+		"message": "specified",
+		"description": "Line 2 part 2 of Hint for black lists"
+	},	
+	"lists_black_hint_p2_3": {
+		"message": " for white and black lists. For example, with the two active Black lists:",
+		"description": "Line 2 part 3 of Hint for black lists"
+	},	
+	"lists_black_hint_p3_1": {
+		"message": "{\"host\" : [\"zombo*\", \"*.example.*\"], \"path\" : [\"/*/page0*.html\"]}",
+		"description": "Line 3 part 1 of Hint for black lists"
+	},	
+	"lists_black_hint_p3_2": {
+		"message": "{\"scheme\" : [\"https\", \"file\"]}",
+		"description": "Line 3 part 2 of Hint for black lists"
+	},	
+	"lists_black_hint_p4": {
+		"message": "the following URLs are prevented by the Black lists from accessing any adaptor",
+		"description": "Line 4 of Hint for black lists"
+	},	
+	"lists_black_hint_p5_1": {
+		"message": "http://www.example.com/anypath/page001.html",
+		"description": "Line 5 part 1 of Hint for black lists"
+	},	
+	"lists_black_hint_p5_2": {
+		"message": "https://www.example.com/anypath/page100.html",
+		"description": "Line 5 part 2 of Hint for black lists"
+	},	
+	"lists_black_hint_p5_3": {
+		"message": "file:///master/voice.mp3",
+		"description": "Line 5 part 3 of Hint for black lists"
+	},	
+	"lists_black_hint_p6": {
+		"message": "However, the following URLs are not restricted by those two Black lists ",
+		"description": "Line 6 of Hint for black lists"
+	},	
+	"lists_black_hint_p7_1": {
+		"message": "http://zombo.com  (no path)",
+		"description": "Line 7 part 1 of Hint for black lists"
+	},	
+	"lists_black_hint_p7_2": {
+		"message": "http://www.example.com/anypath/page100.html (not a matching path) ",
+		"description": "Line 7 part 2 of Hint for black lists"
+	},	
+	"lists_black_hint_p8_1": {
+		"message": "For details of how White lists and Black lists work together, refer to the lists ",
+		"description": "Line 8 part 1 of Hint for black lists"
+	},	
+	"lists_black_hint_p8_2": {
+		"message": "documentation ",
+		"description": "Line 8 part 2 of Hint for black lists"
+	},	
+	"lists_black_hint_p8_3": {
+		"message": "where these Black lists are described as Filter2.",
+		"description": "Line 8 part 3 of Hint for black lists"
+	},	
+	
+	
+	"lists_white_header": {
+		"message": "White Lists",
+		"description": "Boilerpate header on white lists admin form"
+	},	
+	"lists_white_singular": {
+		"message": "White List",
+		"description": "Boilerpate footer on white lists admin form"
+	},	
+	"lists_white_plural": {
+		"message": "White Lists",
+		"description": "Boilerpate footer on white lists admin form"
+	},	
+	"lists_white_items": {
+		"message": "white list items",
+		"description": "Message on white lists admin form"
+	},	
+	"lists_white_hint": {
+		"message": "Hint",
+		"description": "Summary of Hint for white lists"
+	},	
+	"lists_white_hint_p1": {
+		"message": "These White lists permit access for all adaptors to any web page whose URL matches one or more values; for all specified components; in one or more of the active list items on this page.",
+		"description": "Line 1 of Hint for white lists"
+	},	
+	"lists_white_hint_p2_1": {
+		"message": "Each list must conform to the ",
+		"description": "Line 2 part 1 of Hint for white lists"
+	},	
+	"lists_white_hint_p2_2": {
+		"message": "specified",
+		"description": "Line 2 part 2 of Hint for white lists"
+	},	
+	"lists_white_hint_p2_3": {
+		"message": " for white and black lists. For example, with the two active White lists:",
+		"description": "Line 2 part 3 of Hint for white lists"
+	},	
+	"lists_white_hint_p3_1": {
+		"message": "{\"host\" : [\"zombo*\", \"*.example.*\"], \"path\" : [\"/*/page0*.html\"]}",
+		"description": "Line 3 part 1 of Hint for white lists"
+	},	
+	"lists_white_hint_p3_2": {
+		"message": "{\"scheme\" : [\"https\", \"file\"]}",
+		"description": "Line 3 part 2 of Hint for white lists"
+	},	
+	"lists_white_hint_p4": {
+		"message": "the following URLs are permitted by the White lists to access any adaptor",
+		"description": "Line 4 of Hint for white lists"
+	},	
+	"lists_white_hint_p5_1": {
+		"message": "http://www.example.com/anypath/page001.html",
+		"description": "Line 5 part 1 of Hint for white lists"
+	},	
+	"lists_white_hint_p5_2": {
+		"message": "https://www.example.com/anypath/page100.html",
+		"description": "Line 5 part 2 of Hint for white lists"
+	},	
+	"lists_white_hint_p5_3": {
+		"message": "file:///master/voice.mp3",
+		"description": "Line 5 part 3 of Hint for white lists"
+	},	
+	"lists_white_hint_p6": {
+		"message": "However, the following URLs are not permitted by those two White lists ",
+		"description": "Line 6 of Hint for white lists"
+	},	
+	"lists_white_hint_p7_1": {
+		"message": "http://zombo.com  (no path)",
+		"description": "Line 7 part 1 of Hint for white lists"
+	},	
+	"lists_white_hint_p7_2": {
+		"message": "http://www.example.com/anypath/page100.html (not a matching path) ",
+		"description": "Line 7 part 2 of Hint for white lists"
+	},	
+	"lists_white_hint_p8_1": {
+		"message": "For details of how White lists and Black lists work together, refer to the lists ",
+		"description": "Line 8 part 1 of Hint for white lists"
+	},	
+	"lists_white_hint_p8_2": {
+		"message": "documentation ",
+		"description": "Line 8 part 2 of Hint for white lists"
+	},	
+	"lists_white_hint_p8_3": {
+		"message": "where these White lists are described as Filter1.",
+		"description": "Line 8 part 3 of Hint for white lists"
+	},	
+
+	"lists_invalid_json": {
+		"message": "Invalid JSON. See the browser's javascript console for details of the error.",
+		"description": "JSON validation error on lists"
+	},	
+	"lists_invalid_schema": {
+		"message": "Invalid lists schema. See the browser's javascript console for details of the error. Also, see Hint below",
+		"description": "Schema validation error on lists"
+	},		
+	"menu_adap_top": {
+		"message": "Adaptors",
+		"description": "Top menu for adaptors"
+	},
+	"menu_adap_modules": {
+		"message": "Adaptor modules",
+		"description": ""
+	},
+	"menu_adap_all": {
+		"message": "all modules",
+		"description": ""
+	},
+	"menu_adap_active": {
+		"message": "active modules",
+		"description": ""
+	},
+	"menu_doc": {
+		"message": "Documentation",
+		"description": ""
+	},
+	"menu_schema": {
+		"message": "Schema",
+		"description": ""
+	},
+	"menu_wbl": {
+		"message": "White / Black Lists",
+		"description": ""
+	},
+	"menu_wbl_wl_lev1": {
+		"message": "manage white lists",
+		"description": ""
+	},
+	"menu_wbl_bl_lev1": {
+		"message": "manage black lists",
+		"description": ""
+	}
+}

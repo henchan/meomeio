@@ -1,0 +1,32 @@
+{
+	"whitelists" : [
+
+			{
+				"whitelist" : "{\"browser\" : {\"incognito\" : [true, false]}}",
+				"inactive" : false,
+				"hits" : 0,
+				"id" : "ee9d998f-f241-4348-a130-42a4f03139b0"
+			},
+			{
+				"whitelist" : "{\"url\" : {\"scheme\" : [\"http\"]}}",
+				"inactive" : false,
+				"hits" : 0,
+				"id" : "1fb99b65-9e52-674a-56a9-d5959aff7b12"
+			},
+			{
+				"whitelist" : "{\"url\" : {\"scheme\" : [\"https\"], \"host\" : [\"www.sslpublic.com\", \"sslpublic.com\"]}}",
+				"inactive" : true,
+				"hits" : 0,
+				"id" : "0ce7a5f3-c7f2-7fde-c2d8-b2b9cbca9aab"
+			}, {
+				"whitelist" : "{\"url\" : {\"host\" : [\"*.facebook.com\"]}}",
+				"inactive" : true,
+				"hits" : 0,
+				"id" : "1318ac18-209d-1179-4d07-91ba90bdffb9"
+			}, {
+				"whitelist" : "{\"url\" : {\"query\" : [\"cTag\", \"location\", \"geo\"]}}",
+				"inactive" : true,
+				"hits" : 0,
+				"id" : "2aa7ad6b-68f2-8d15-e8d0-cce55d41433e"
+			} ]
+}

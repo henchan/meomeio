@@ -1,0 +1,16 @@
+{
+	"meo.my/pageURL": {
+		"admin": {
+			"boilerplate": {
+				"admin_header_href": "http://books.google.com/books?id=PXa2bby0oQ0C&pg=PA66&lpg=PA66&dq=crockford+parse_url&source=bl&ots=HImhl9q7kI&sig=cWo2jqrpYgiUNy6orSFSfMMDZpg&hl=en&ei=oEcWTp_oCcb-mAWP6vwg&sa=X&oi=book_result&ct=result&resnum=1&ved=0CBQQ6AEwAA#v=onepage&q&f=false",
+				"admin_header1": "pageURL",
+				"admin_double_click_edit2": "a pageURL item.",
+				"admin_input_placeholder": "see the link above for supported components",
+				"admin_enter_to_save2": "pageURL item",
+				"admin_singular": "pageURL",
+				"admin_plural": "pageURLs",
+				"admin_ok_to_reset2": "pageURL items."
+			}
+		}
+	}
+}

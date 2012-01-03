@@ -1,0 +1,390 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-weight: inherit;
+  font-style: inherit;
+  font-size: 100%;
+  font-family: inherit;
+  vertical-align: baseline;
+}
+body {
+  line-height: 1;
+  color: black;
+  background: white;
+}
+ol, ul {
+  list-style: none;
+}
+a img {
+  border: none;
+}
+
+html {
+  background: #eeeeee;
+}
+  body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.4em;
+    background: #eeeeee;
+    color: #333333;
+  }
+
+#moduleapp {
+  width: 480px;
+  margin: 0 auto 40px;
+  background: white;
+  padding: 20px;
+  -moz-box-shadow: rgba(0, 0, 0, 0.2) 0 5px 6px 0;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0 5px 6px 0;
+  -o-box-shadow: rgba(0, 0, 0, 0.2) 0 5px 6px 0;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 5px 6px 0;
+}
+  #moduleapp h1 {
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+    padding: 20px 0 30px 0;
+    line-height: 1;
+  }
+
+#create-module {
+  position: relative;
+}
+  #create-module input {
+    width: 466px;
+    font-size: 24px;
+    font-family: inherit;
+    line-height: 1.4em;
+    border: 0;
+    outline: none;
+    padding: 6px;
+    border: 1px solid #999999;
+    -moz-box-shadow: rgba(0, 0, 0, 0.2) 0 1px 2px 0 inset;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0 1px 2px 0 inset;
+    -o-box-shadow: rgba(0, 0, 0, 0.2) 0 1px 2px 0 inset;
+    box-shadow: rgba(0, 0, 0, 0.2) 0 1px 2px 0 inset;
+  }
+    #create-module input::-webkit-input-placeholder {
+      font-style: italic;
+    }
+  #create-module span {
+    position: absolute;
+    z-index: 999;
+    width: 170px;
+    left: 50%;
+    margin-left: -85px;
+  }
+
+#module-list {
+  margin-top: 10px;
+}
+  #module-list li {
+    padding: 12px 20px 11px 0;
+    position: relative;
+    font-size: 24px;
+    line-height: 1.1em;
+    border-bottom: 1px solid #cccccc;
+  }
+    #module-list li:after {
+      content: "\0020";
+      display: block;
+      height: 0;
+      clear: both;
+      overflow: hidden;
+      visibility: hidden;
+    }
+    #module-list li.editing {
+      padding: 0;
+      border-bottom: 0;
+    }
+  #module-list .editing .display,
+  #module-list .edit {
+    display: none;
+  }
+    #module-list .editing .edit {
+      display: block;
+    }
+    #module-list .editing input {
+      width: 444px;
+      font-size: 24px;
+      font-family: inherit;
+      margin: 0;
+      line-height: 1.6em;
+      border: 0;
+      outline: none;
+      padding: 10px 7px 0px 27px;
+      border: 1px solid #999999;
+      -moz-box-shadow: rgba(0, 0, 0, 0.2) 0 1px 2px 0 inset;
+      -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0 1px 2px 0 inset;
+      -o-box-shadow: rgba(0, 0, 0, 0.2) 0 1px 2px 0 inset;
+      box-shadow: rgba(0, 0, 0, 0.2) 0 1px 2px 0 inset;
+    }
+  #module-list .inactive .module-content {
+    text-decoration: line-through;
+    color: #777777;
+  }
+
+  #module-list .error .module-content {
+     color: #DF0101;
+  }
+
+#module-list .module-destroy {
+    position: absolute;
+    right: 5px;
+    top: 14px;
+    display: none;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    background: url(/images/fugue/destroy.png) no-repeat 0 0;
+  }
+    #module-list li:hover .module-destroy {
+      display: block;
+    }
+    #module-list .module-destroy:hover {
+      background-position: 20 -40px;
+    }
+
+  #module-list .check {
+    position: absolute;
+    right: 5px;
+	top: 30px;
+    display: none;
+  }
+    #module-list li:hover .check {
+      display: block;
+    }
+    #module-list .check:hover {
+      background-position: 20 -40px;
+    }
+
+#module-list .module-admin {
+    position: absolute;
+    right: 30px;
+    top: 14px;
+    display: none;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    background: url(/images/fugue/edit-list.png) no-repeat 0 0;
+  }
+    #module-list li:hover .module-admin {
+      display: block;
+    }
+    #module-list .module-admin:hover {
+      background-position: 20 -40px;
+    }
+
+  #module-list .module-admin-check {
+    position: absolute;
+    right: 30px;
+	top: 30px;
+    display: none;
+  }
+    #module-list li:hover .module-admin-check {
+      display: block;
+    }
+    #module-list .module-admin-check:hover {
+      background-position: 20 -40px;
+    }
+
+  #module-list .module-whitelist {
+    position: absolute;
+    right: 80px;
+    top: 14px;
+    display: none;
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    background: url(/images/fugue/whitelist.png) no-repeat 0 0;
+  }
+    #module-list li:hover .module-whitelist {
+      display: block;
+    }
+    #module-list .module-whitelist:hover {
+      background-position: 20 -40px;
+    }
+
+#module-list .module-blacklist {
+    position: absolute;
+    right: 55px;
+    top: 14px;
+    display: none;
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    background: url(/images/fugue/blacklist.png) no-repeat 0 0;
+  }
+    #module-list li:hover .module-blacklist {
+      display: block;
+    }
+    #module-list .module-blacklist:hover {
+      background-position: 20 -40px;
+    }
+
+#module-stats {
+  *zoom: 1;
+  margin-top: 10px;
+  color: #777777;
+}
+  #module-stats:after {
+    content: "\0020";
+    display: block;
+    height: 0;
+    clear: both;
+    overflow: hidden;
+    visibility: hidden;
+  }
+  #module-stats .module-count {
+    float: left;
+  }
+    #module-stats .module-count .number {
+      font-weight: bold;
+      color: #333333;
+    }
+  #module-stats .module-clear {
+    float: right;
+  }
+    #module-stats .module-clear a {
+      color: #777777;
+      font-size: 12px;
+    }
+      #module-stats .module-clear a:visited {
+        color: #777777;
+      }
+      #module-stats .module-clear a:hover {
+        color: #336699;
+      }
+  #module-stats .module-reset {
+    float: right;
+  }
+
+#instructions {
+  width: 520px;
+  margin: 10px auto;
+  color: #777777;
+  text-shadow: rgba(255, 255, 255, 0.8) 0 1px 0;
+  text-align: center;
+}
+  #instructions a {
+    color: #336699;
+  }
+
+#credits {
+  width: 520px;
+  margin: 30px auto;
+  color: #999;
+  text-shadow: rgba(255, 255, 255, 0.8) 0 1px 0;
+  text-align: center;
+}
+  #credits a {
+    color: #888;
+  }
+
+
+/*
+ *  François 'cahnory' Germain
+ */
+.ui-tooltip, .ui-tooltip-top, .ui-tooltip-right, .ui-tooltip-bottom, .ui-tooltip-left {
+  color:#ffffff;
+  cursor:normal;
+  display:-moz-inline-stack;
+  display:inline-block;
+  font-size:12px;
+  font-family:arial;
+  padding:.5em 1em;
+  position:relative;
+  text-align:center;
+  text-shadow:0 -1px 1px #111111;
+  -webkit-border-top-left-radius:4px ;
+  -webkit-border-top-right-radius:4px ;
+  -webkit-border-bottom-right-radius:4px ;
+  -webkit-border-bottom-left-radius:4px ;
+  -khtml-border-top-left-radius:4px ;
+  -khtml-border-top-right-radius:4px ;
+  -khtml-border-bottom-right-radius:4px ;
+  -khtml-border-bottom-left-radius:4px ;
+  -moz-border-radius-topleft:4px ;
+  -moz-border-radius-topright:4px ;
+  -moz-border-radius-bottomright:4px ;
+  -moz-border-radius-bottomleft:4px ;
+  border-top-left-radius:4px ;
+  border-top-right-radius:4px ;
+  border-bottom-right-radius:4px ;
+  border-bottom-left-radius:4px ;
+  -o-box-shadow:0 1px 2px #000000, inset 0 0 0 1px #222222, inset 0 2px #666666, inset 0 -2px 2px #444444;
+  -moz-box-shadow:0 1px 2px #000000, inset 0 0 0 1px #222222, inset 0 2px #666666, inset 0 -2px 2px #444444;
+  -khtml-box-shadow:0 1px 2px #000000, inset 0 0 0 1px #222222, inset 0 2px #666666, inset 0 -2px 2px #444444;
+  -webkit-box-shadow:0 1px 2px #000000, inset 0 0 0 1px #222222, inset 0 2px #666666, inset 0 -2px 2px #444444;
+  box-shadow:0 1px 2px #000000, inset 0 0 0 1px #222222, inset 0 2px #666666, inset 0 -2px 2px #444444;
+  background-color:#3b3b3b;
+  background-image:-moz-linear-gradient(top,#555555,#222222);
+  background-image:-webkit-gradient(linear,left top,left bottom,color-stop(0,#555555),color-stop(1,#222222));
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorStr=#555555,EndColorStr=#222222);
+  -ms-filter:progid:DXImageTransform.Microsoft.gradient(startColorStr=#555555,EndColorStr=#222222);
+}
+.ui-tooltip:after, .ui-tooltip-top:after, .ui-tooltip-right:after, .ui-tooltip-bottom:after, .ui-tooltip-left:after {
+  content:"\25B8";
+  display:block;
+  font-size:2em;
+  height:0;
+  line-height:0;
+  position:absolute;
+}
+.ui-tooltip:after, .ui-tooltip-bottom:after {
+  color:#2a2a2a;
+  bottom:0;
+  left:1px;
+  text-align:center;
+  text-shadow:1px 0 2px #000000;
+  -o-transform:rotate(90deg);
+  -moz-transform:rotate(90deg);
+  -khtml-transform:rotate(90deg);
+  -webkit-transform:rotate(90deg);
+  width:100%;
+}
+.ui-tooltip-top:after {
+  bottom:auto;
+  color:#4f4f4f;
+  left:-2px;
+  top:0;
+  text-align:center;
+  text-shadow:none;
+  -o-transform:rotate(-90deg);
+  -moz-transform:rotate(-90deg);
+  -khtml-transform:rotate(-90deg);
+  -webkit-transform:rotate(-90deg);
+  width:100%;
+}
+.ui-tooltip-right:after {
+  color:#222222;
+  right:-0.375em;
+  top:50%;
+  margin-top:-.05em;
+  text-shadow:0 1px 2px #000000;
+  -o-transform:rotate(0);
+  -moz-transform:rotate(0);
+  -khtml-transform:rotate(0);
+  -webkit-transform:rotate(0);
+}
+.ui-tooltip-left:after {
+  color:#222222;
+  left:-0.375em;
+  top:50%;
+  margin-top:.1em;
+  text-shadow:0 -1px 2px #000000;
+  -o-transform:rotate(180deg);
+  -moz-transform:rotate(180deg);
+  -khtml-transform:rotate(180deg);
+  -webkit-transform:rotate(180deg);
+}

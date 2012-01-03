@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<!-- Combined templates file created 2011-04-25 16:22:58 -0400.  Use "rake combine_templates" to generate instead of hand-editing. -->
+
+<!-- addscopedialog -->
+<script id="addscopedialog" class="template" type="text/html">
+<div title="<%= title %>">
+  <form id="scope-form">
+    <input type="hidden" name="index" value="<%= scope.index %>" />
+    <input type="hidden" name="status" value="<%= scope.status %>" />
+    <div>
+      <div style="float:left">
+        <div class="form-row">
+          <label for="s_name">Scope name: </label><br/>
+          <input type="text" name="s_name" class="required" value="<%= scope.s_name %>" />
+        </div>
+        <div class="form-row">
+          <label for="lastname">Owner's name: </label><br/>
+          <input type="text" name="lastname" class="required" value="<%= scope.lastname %>" />
+        </div>
+      </div>
+      <div class="clear"></div>
+    </div>
+    <div>
+      <div style="float:left">
+        <div class="form-row">
+          <label for="s_description">
+            Description:<br />
+            <textarea name="s_description" id="s_description" rows="9" cols="30"><%= scope.s_description %></textarea>
+          </label>
+        </div>
+        <div class="form-row">
+          <label for="created">
+            Created:<br />
+            <input type="text" name="created" value="<%= scope.created %>" />
+          </label>
+        </div>
+      </div>
+      <div style="float:left">
+        <div class="form-row">
+          <label for="telephone">
+            Telephone:<br />
+            <input type="text" name="telephone" value="<%= scope.telephone %>" />
+          </label>
+        </div>
+      </div>
+      <div class="clear"></div>
+    </div>
+  </form>
+</div>
+</script>
+
+<!-- addculturedialog -->
+<script id="addculturedialog" class="template" type="text/html">
+<div title="<%= title %>">
+  <form id="culture-form">
+    <input type="hidden" name="index" value="<%= culture.index %>" />
+    <div>
+      <div style="float:left">
+        <div class="form-row">
+          <label for="host">
+            Target Host / Culture:<br/>
+            <input type="url" id="c_host" placeholder="https://127.0.0.1:5984" value="<%= culture.host %>" />
+          </label>
+        </div>
+      </div>
+      <div style="float:left">
+        <div class="form-row">
+          <input type="text" id="c_name" class="c_name required" placeholder="my_culture" value="<%= culture.name %>" />
+        </div>
+      </div>
+      <div class="clear"></div>
+    </div>
+    <div>
+      <div style="float:left">
+        <div class="form-row">
+          <label for="c_description">
+            Comments:<br />
+            <textarea id="c_description" rows="3" cols="25"><%= culture.description %></textarea>
+          </label>
+        </div>
+        <div class="form-row">
+          <label for="created">
+            Created:<br />
+            <input type="text" name="c_created" value="<%= culture.created %>" />
+          </label>
+        </div>
+        <div class="form-row">
+          <label for="c_destroy">
+            <input type="checkbox" id="c_destroy" name="c_destroy"><%= culture.c_destroy %></>
+            Overwrite ?<br /> </label>
+          <label for="c_sw_only">
+            <input type="checkbox" id="c_sw_only" name="c_sw_only" checked="checked"><%= culture.c_sw_only %></>
+            Application only. No data ?<br /> 
+          <label for="c_continuous">
+            <input type="checkbox" id="c_continuous" name="c_sw_only"><%= culture.c_continuous %></>
+            Continuous replication ?  <br /> </label>
+        </div>
+      </div>
+      <div class="clear"></div>
+    </div>
+  </form>
+</div>
+</script>
+
+<!-- auth -->
+<script id="auth" class="template" type="text/html">
+<div id="auth">
+  <div class="error-wrapper">
+    <div style="display:none" class="error"></div>
+  </div>
+  <div class="loginbox">
+    <p>Ooops looks like your session expired.</p>
+    <p class="title"><strong>Please login again</stong></p>
+    <form method="post">
+      <label>username:<br/><input type="text" name="name" /></label><br />
+      <label>password:<br/><input type="password" name="password" /></label><br />
+      <label><input id="login" type="button" class="login" name="submit" value="login" /></label>
+      <div style="clear:both"></div>
+    </form>
+  </div>
+  <div class="help">
+    <p><strong>Help: </strong><a href="http://meo.my/forgot-password">I can't sign in or I forgot my username/password</a></p>
+  </div>
+</div>
+</script>
+
+<!-- category -->
+<script id="category" class="template" type="text/html">
+    <li class="paneltitle ui-state-default" style="background-color: #d9e9fc">
+        <%= category.name %>
+    </li>
+</script>
+
+<!-- confirmdialog -->
+<script id="confirmdialog" class="template" type="text/html">
+<div title="Are you sure?">
+ <p><%= title %></p>
+</div>
+</script>
+
+<!-- exudes -->
+<script id="exudes" class="template" type="text/html">
+<h3 class="scope-name"><%= scope.s_name %></h3>
+<div>
+  <div class="common">
+	<table width="60" border="1">
+	    <tr>
+	        <td><label> Couch DB :  </label>
+	        </td>
+	    </tr>
+	    <tr>
+	        <td><input type="text" name="dbname" placeholder="&nbsp;some_db_name" value="<%=scopeParameter.dbname%>" /> </td>
+	        </td>
+	    </tr>
+	</table>		
+  </div>
+  <div class="scopeParameter-fields">
+    <div class="form-row">
+      <label>Type of offer made:</label>
+      <select class="exude_source_type_select" name="exude_source_type">
+        <% $.each(types, function(index, type) { %>
+          <option <%= type == scopeParameter.exude_source_type ? 'selected' : '' %> value="<%=type%>">
+            <%=type.replace(/_/g, " ")%>
+          </option>
+        <% }); %>
+      </select>
+    </div>
+    <div class="form-row">
+      <label> Comments?<br /><textarea rows="3" cols="30" name="comments"><%=scopeParameter.comments%></textarea></label>
+    </div>
+    <div id="private_scope" class="exude_source_type">
+	  <div class="form-row">
+	    <label>Allow users :</label><br />
+	    <div class="users"></div>
+	  </div>
+      <div class="form-row">
+        <label><input type="checkbox" id="payment_required" name="payment_required" <%= scopeParameter.payment_required ? "checked" : "" %>  value="true" /> payment required?</label>
+        <span style="display:none;" data-dependson='#payment_required'>
+		  <label><br /> <input type="text" name="payaddress" placeholder="&nbsp;my personal valid payment address" value="<%=scopeParameter.payaddress%>" />
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="common">
+ 	  <div class="form-row">
+	    <div class="cladesinScope"></div>
+	  </div>
+  </div> 
+</div>
+</script>
+
+
+<!-- scopeClades -->
+<script id="scopeClades" class="template" type="text/html">
+  <div class="scopeContent-fields">
+ 	  <div class="form-row">
+	    <div class="cladesinScope"></div>
+	  </div>
+</script>
+
+
+<!-- licenses -->
+<script id="licenses" class="template" type="text/html">
+<div>
+<h1>Third Party Software</h1>
+
+<h3>Meomeio is built with the following (awesome) <a title="What is Free, Libre, and Open Source Software?" target="_blank" href="http://en.wikipedia.org/wiki/Outline_of_free_software">open source software</a>:</h3>
+<h3>Part of its structure is based on the source of a commercial application <a title="meo.my" target="_blank" href="http://meo.my"></a>:</h3>
+
+<table>
+<tr><th>Software</th><th>License</th></tr>
+<% _(licenses).each(function(item) { %>
+  <tr><td><a href="<%= item.url %>"><%= item.name %></a></td><td><a target="license_popup" href="licenses/<%= item.license_file %>"><%= item.license %></a></td></tr>
+<% }); %>
+</table>
+
+<p style="margin-top: 30px">Many thanks to these and other free and open source projects one whose shoulders we stand.</p>
+</div></script>
+
+<!-- meta -->
+<script id="meta" class="template" type="text/html">
+<div id="meta-tabs"> 
+  <ul> 
+    <li><a href="#meta-about">About</a></li> 
+    <!-- <li><a href="#meta-settings">Settings</a></li> -->
+    <li><a href="#meta-licenses">Third Party Software</a></li> 
+  </ul> 
+  <div id="meta-about">
+    <span style="float: right; text-align: right; vertical-align: top">Version 0.3.0 Backbone-CouchDB re-write</span>
+    <h1>About</h1>
+    <img src="images/logo.png"/>
+    <p style="text-align: justify">
+      <a title="meomy" href="http://meo.my">meo.my</a> is a product of ...
+    </p>
+    <p style="text-align: right">- <a title="the meomeio team" href="mailto:team@meomeio.com">Andrew</a></p>
+    <h3>Support</h3>
+    <p>Support for meomeio is available online via email and the web:
+    <dl>
+      <dt>Email</dt>meomeio
+      <dd><a title="email support" href="mailto:support@meomeio.com">support@meomeio.com</a></dd>
+      <dt>Web</dt>
+      <dd><a title="meomeio web support" href="http://meomeio.com/support">meomeio support</a></dd>
+    </dl>
+    </p>
+    <div style="float: right; margin-top: 30px; color: #cccccc; text-align: right">
+      <p><a title="meomeio" href="http://meomeio.com"><img style="float: right" alt="meomeio logo" title="meomeio" src="images/lantern-small-trans.png" width="30px"/></a>
+      =^.^= meomeio&nbsp;meo.my is a product of meomeio. ©2011&nbsp;meomeio. 
+      </p>
+    </div>
+  </div>
+  <div id="meta-settings">
+  </div>
+  <div id="meta-licenses">
+  </div>
+</div>
+</script>
+
+<!-- scope -->
+<script id="scope" class="template" type="text/html">
+<div class="row1">
+  <div class="attribute name"><%= scope.get('s_name') %></div>
+  <div class="attribute owner"><%= scope.get('lastname') %></div>
+  <div class="attribute created"><%= scope.get('created') %></div>
+  <div class="attribute phone"><%= scope.get('telephone') %></div>
+  <div class="clear"></div>
+</div>
+<div class="row2">
+  <div class="attribute reason"><%= scope.get('s_description') %></div>
+  <div style="float:right; margin: 1px; display:<%= scope.get('mark') == "done" ? 'block' : 'none' %>" class="mark ui-icon ui-icon-check-green">
+  </div>
+</div>
+<div class="actions" style="display:none">
+  <ul class="ui-widget ui-helper-clearfix icons">
+    <li class="action ui-state-default ui-corner-all edit"><a title="edit scope" href="#" class="ui-icon ui-icon-pencil"></a></li> 
+    <li class="action ui-state-default ui-corner-all checkout"><a title="checkout scope" href="#" class="ui-icon ui-icon-home"></a></li> 
+    <li class="action ui-state-default ui-corner-all done">
+      <a title="mark as done" href="#" class="ui-icon ui-icon-check<%= scope.get('mark') == "done" ? '-green' : '' %>"></a>
+    </li>
+  </ul>
+</div>            
+</script>
+
+<!-- settings -->
+<script id="settings" class="template" type="text/html">
+<!--
+<div>
+  <form id="settings-form">
+    <h2>Settings</h2>
+    <div class="form-row">
+      <label>
+        Please type path to your current AVIMark installation:<br />
+        <input type="text" style="width:400px" name="avimark_home" value="<%= settings.get('avimark_home') %>" /> <br />
+        <span class="ex" style="color: #999">example: C:\Program Files\AviMark</span> 
+      </label>
+    </div>
+    <div class="form-row">
+      <button id="save-settings">Save</button> <span class="notifier" style="display:none">Saved!</span>
+    </div>
+  </form>
+</div>
+-->
+</script>
+
+<!-- absorbs -->
+<script id="absorbs" class="template" type="text/html">
+<h3 class="scope-name"><%= scope.s_name %></h3>
+<div>
+  <div class="scopeParameter-fields">
+	<table width="60" border="1">
+	    <tr>
+	        <td><label>Host</label></td>
+	        <td><label>Couch DB :</label>
+	        </td>
+	    </tr>
+	    <tr>
+	        <td><input type="text" name="baseUrl" placeholder="&nbsp;http://127.0.0.1:5984" value="<%=scopeParameter.baseUrl%>" /></td>
+	        <td><input type="text" name="dbname" placeholder="&nbsp;some_db_name" value="<%=scopeParameter.dbname%>" /> </td>
+	        </td>
+	    </tr>
+	</table>		
+     <div class="form-row">
+      <label>Type of accepted offers :</label>
+      <select class="absorb_source_type_select" name="absorb_source_type">
+        <% $.each(types, function(index, type) { %>
+          <option <%= type == scopeParameter.absorb_source_type ? 'selected' : '' %> value="<%=type%>">
+            <%=type.replace(/_/g, " ")%>
+          </option>
+        <% }); %>
+      </select>
+    </div>
+    <div id="public_scope" class="absorb_source_type">
+	    <div class="form-row">
+	      <label> Comments?<br /><textarea rows="3" cols="30" name="comments"><%=scopeParameter.comments%></textarea></label>
+	    </div>
+	</div>
+    <div id="private_scope" class="absorb_source_type">
+	    <div class="form-row">
+	        <label> User<br /> <input type="text" name="username" placeholder="&nbsp;myUserName" value="<%=scopeParameter.username%>" />
+	        </label>
+	    </div>
+    </div>
+</div>
+</div>
+</script>
+
+<!-- statusswitch -->
+<script id="statusswitch" class="template" type="text/html">
+</script>
+
+<!-- cdb -->
+<script id="cdb" class="template" type="text/html">
+<label>
+  <input type="checkbox" class="cdb-active" name="cdb" <%= (cdb.active == 'Y') ? "checked" : "" %> value="Y" /> 
+  <span class="<%=cdb.active%>"><%= cdb.value %></span>
+
+  <span class="<%=cdb.active%>"><%= cdb.publ %></span>
+
+  <a class="ui-state-default ui-corner-all action remove" href="#">
+<span class="ui-icon ui-icon-trash"></span></a>
+</label>
+</script>
+
+<!-- user -->
+<script id="user" class="template" type="text/html">
+<label>
+  <input type="checkbox" class="user-active" name="user" <%= (user.active == 'Y') ? "checked" : "" %> value="Y" /> 
+  <span class="<%=user.active%>"><%= user.value %></span>
+
+  <a class="ui-state-default ui-corner-all action remove" href="#">
+<span class="ui-icon ui-icon-trash"></span></a>
+</label>
+</script>
+
+<!-- users -->
+<script id="users" class="template" type="text/html">
+<div class="add-wrapper">
+  <input class="add-user" placeholder="&nbsp;some_user_name" type="text" name="user" value="" />
+  <a class="action add ui-state-default ui-corner-all" href="#"  title="Add a User">
+    <span class="ui-icon ui-icon-plus"></span>
+  </a>
+</div>
+<div class="clear"></div>
+<ul class="list"></ul>
+</script>
+
+<!-- cladeinScope -->
+<script id="cladeinScope" class="template" type="text/html">
+<label>
+  <input type="checkbox" class="cladeinScope-active" name="cladeinScope" <%= (cladeinScope.active == 'Y') ? "checked" : "" %> value="Y" /> 
+  <span class="<%=cladeinScope.active%>"><%= cladeinScope.value %></span>
+
+  <a class="ui-state-default ui-corner-all action remove" href="#">
+<span class="ui-icon ui-icon-trash"></span></a>
+</label>
+</script>
+
+<!-- cladesinScope -->
+<script id="cladesinScope" class="template" type="text/html">
+<ul class="list"></ul>
+</script>
+
+<!-- s_descriptiondialog -->
+<script id="s_descriptiondialog" class="template" type="text/html">
+<div title="<%= scope.s_name %>">
+  <form>
+    <label>
+      Scope Description:
+      <textarea name="s_description" id="s_description" rows="5" cols="30"><%= scope.s_description %></textarea>
+    </label>
+  </form>
+</div>
+</script>
+

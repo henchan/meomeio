@@ -1,0 +1,7 @@
+{
+	"name": "meo.my.opengraph",
+	"description": "open graph protocol adaptor for Me☸my",
+	"path": "meo.my.opengraph",
+	"updates": "http://meo.my/modules/meo.my.opengraph/updates",
+	"version": "0.1"
+}

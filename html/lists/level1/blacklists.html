@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>me&#9784;my Black Lists</title>
+<script src="/js/libs/jquery/jquery-1.6.2.min.js" type="text/javascript"></script>
+<script src="/js/libs/jquery/plugins/jquery.url.js" type="text/javascript"></script>
+<script src="/js/libs/underscore.js" type="text/javascript"></script>
+<script src="/js/libs/backbone/backbone.js" type="text/javascript"></script>
+<script src="/js/libs/smoke.min.js" type="text/javascript"></script>
+<script src="/js/libs/backbone/backbone-localstorage.js" type="text/javascript"></script>
+<script src="/js/libs/JSV/lib/uri/uri.js" type="text/javascript"></script>
+<script src="/js/libs/JSV/lib/jsv.js" type="text/javascript"></script>
+<script src="/js/libs/JSV/lib/json-schema-draft-03.js" type="text/javascript"></script>
+<script src="/js/app/lists/level1/defaults.js" type="text/javascript"></script>
+<script src="/js/app/common/common.js" type="text/javascript"></script>
+<script src="/js/app/modules/a_common.js" type="text/javascript"></script>
+<script src="/js/app/lists/schema.js" type="text/javascript"></script>
+<script src="/js/app/lists/l_common.js" type="text/javascript"></script>
+<link href="/css/blacklists.css" media="all" rel="stylesheet" type="text/css" />
+<link href="/css/smoke.css" rel="stylesheet" type="text/css" media="screen" />  	
+<link href="/css/100s.css" id="theme" rel="stylesheet" type="text/css" media="screen" />
+<link href="/css/main.css" media="all" rel="stylesheet" type="text/css" />
+
+<link href="/js/libs/bespin" id="bespin_base" />
+<link href="/js/libs/reformed/reformed.css" rel="stylesheet" type="text/css" />
+<style>.bespin{border:1px solid #999;position:relative}</style>
+<script src="/js/libs/reformed/js/jquery-ui-1.8.2.custom.min.js" type="text/javascript" ></script>
+<script src="/js/libs/reformed/js/jquery.hotkeys.js" type="text/javascript" ></script>
+<script src="/js/libs/reformed/js/jquery.json-2.2.min.js" type="text/javascript" ></script>
+<script src="/js/libs/reformed/js/jquery.reformed.js" type="text/javascript" ></script>
+<script src="/js/libs/bespin/BespinEmbedded.js" type="text/javascript" ></script>
+
+</head>
+
+<body>
+
+	<div id="blacklistapp">
+		<div class="title">
+			<div id="blacklists">
+				<h1><a id="lists_black_header" href="/html/lists/level1/blacklists.html" ></a>			
+					<a href="/html/lists/level1/whitelists.html" >
+						<img src="/images/fugue/whitelist.png" alt="White lists" /></a>
+				</h1>
+			</div>
+		</div>
+
+		<div class="blacklist">
+			<div id="create-blacklist">
+				<input id="new-blacklist"
+					placeholder='["url","scheme","host","path","query","hash"]'
+					type="text" /> <span class="ui-tooltip-top" style="display: none;">Press
+					Enter to save this Black List</span>
+			</div>
+			<div id="blacklists">
+				<ul id="blacklist-list"></ul>
+			</div>
+			<div id="blacklist-stats"></div>
+		</div>
+
+	</div>
+
+	<ul id="instructions">
+		<li>Double-click to edit a Black List.</li>
+	</ul>
+
+	<!-- Templates -->
+	<script type="text/template" id="item-template">
+      <div class="blacklist <%= inactive ? 'inactive' : '' %>">
+        <div class="display">
+          <input class="check" type="checkbox" <%= inactive ? 'checked="checked"' : '' %> />
+          <div class="blacklist-content"></div>
+          <span class="blacklist-destroy"></span>
+          <span class="blacklist-edit"></span>
+        </div>
+        <div class="edit">
+          <textarea id="input" class="blacklist-input" type="text" value="" />
+        </div>
+      </div>
+    </script>
+
+	<script type="text/template" id="stats-template">
+      <% if (total) { %>
+        <span class="blacklist-count">
+          <span class="number"><%= remaining %></span>
+          <span class="word"><%= remaining == 1 ? chrome.i18n.getMessage("lists_black_singular") : chrome.i18n.getMessage("lists_black_plural") %></span> active.
+        </span>
+      <% } %>
+      <% if (inactive) { %>
+        <span class="blacklist-clear">
+          <a href="#">
+            Clear <span class="number-inactive"><%= inactive %></span>
+            inactive <span class="word-inactive"><%= inactive == 1 ? chrome.i18n.getMessage("lists_black_singular") : chrome.i18n.getMessage("lists_black_plural") %></span>
+          </a>
+        </span>
+      <% } %>    
+        <span class="blacklist-reset">
+				<label><input type="button" class="blacklist-reset-button" id="blacklist-reset-button" value="reset all" /></label>
+
+         </span>
+
+    </script>
+    
+	<details close=true>
+	  <summary id="lists_black_hint"></summary>
+	  <p id="lists_black_hint_p1"></p>
+	  <p id="lists_black_hint_p2"></p>
+	  <li id="lists_black_hint_p3"></li>
+	  <p id="lists_black_hint_p4"></p>
+	  <p><li id="lists_black_hint_p5_1"></li></p>
+	  <p><li id="lists_black_hint_p5_2"></li></p>
+	  <p><li id="lists_black_hint_p5_3"></li></p>
+	  <p id="lists_black_hint_p6"></p>
+	  <p><li id="lists_black_hint_p7_1"></li></p>
+	  <p><li id="lists_black_hint_p7_2"></li></p>
+	  <p id="lists_black_hint_p8"></p>
+	</details>
+
+ 	<div>
+		<form id="reformed" > </form>
+	</div>
+
+	<script src="/js/app/lists/level1/blacklists.js" type="text/javascript"></script>
+
+</body>
+
+</html>

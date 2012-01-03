@@ -1,0 +1,81 @@
+{
+	"id": "http://meo.my/versions/0.1.7/json-schema/lists.json",
+	"description": "Validate White and Black Lists",
+	"type": "object",
+	"required": true,
+	"properties": {
+		"browser": {
+			"description": "Properties of the Chrome browser",
+			"type": "object",
+			"required": false,
+			"properties": {
+				"incognito": {
+					"title": "incognito (porn) mode",
+					"type": "array",
+					"items": {
+						"type": "boolean"
+					},
+					"required": false
+				}
+			},
+			"additionalProperties": false
+		},
+		"url": {
+			"description": "Properties of URL components",
+			"type": "object",
+			"required": false,
+			"properties": {
+				"url": {
+					"title": "full url",
+					"type": ["string","array"],
+					"items": {
+						"type": "string"
+					},
+					"required": false
+				},
+				"scheme": {
+					"title": "url scheme",
+					"type": ["string","array"],
+					"items": {
+						"type": "string"
+					},
+					"required": false
+				},
+				"host": {
+					"title": "url host",
+					"type": ["string","array"],
+					"items": {
+						"type": "string"
+					},
+					"required": false
+				},
+				"path": {
+					"title": "url path",
+					"type": ["string","array"],
+					"items": {
+						"type": "string"
+					},
+					"required": false
+				},
+				"query": {
+					"title": "url scheme",
+					"type": ["string","array"],
+					"items": {
+						"type": "string"
+					},
+					"required": false
+				},
+				"hash": {
+					"title": "url hash",
+					"type": ["string","array"],
+					"items": {
+						"type": "string"
+					},
+					"required": false
+				}
+			},
+			"additionalProperties": false
+		}
+	},
+	"additionalProperties": false
+}

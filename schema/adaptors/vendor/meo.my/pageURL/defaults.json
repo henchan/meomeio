@@ -1,0 +1,40 @@
+{
+	"meo.my/pageURL": [
+		{
+			"content": "{\"url\" : {\"full\" : true}}",
+			"inactive": false,
+			"hits": 0,
+			"id": "ee9d998f-f241-4348-a130-42a4f03139b0"
+		}, {
+			"content": "{\"url\" : {\"scheme\" : {}}}",
+			"inactive": true,
+			"hits": 0,
+			"id": "c9d7228e-7e1a-6c28-238a-709d9471b1de"
+		}, {
+			"content": "{\"url\" : {\"host\" : {}}}",
+			"inactive": false,
+			"hits": 0,
+			"id": "1a5d80e5-bccc-7861-5a49-5bd9eeefa3d6"
+		}, {
+			"content": "{\"url\" : {\"port\" : {}}}",
+			"inactive": true,
+			"hits": 0,
+			"id": "2033f0f3-95d4-3bdf-52fc-eb22bfc1bacc"
+		}, {
+			"content": "{\"url\" : {\"path\" : {}}}",
+			"inactive": false,
+			"hits": 0,
+			"id": "ead288a9-a1c7-97b6-f4e8-48bc1f43ab83"
+		}, {
+			"content": "{\"url\" : {\"query\" : {}}}",
+			"inactive": false,
+			"hits": 0,
+			"id": "1fb99b65-9e52-674a-56a9-d5959aff7b12"
+		}, {
+			"content": "{\"url\" : {\"hash\" : {}}}",
+			"inactive": false,
+			"hits": 0,
+			"id": "edd85631-7044-7c83-010f-2564969d2b7c"
+		}
+	]
+}

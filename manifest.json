@@ -1,0 +1,48 @@
+{
+	"name": "Meo☸My profiles and adaptors",
+	"version": "0.2.0",
+	"description": "While you are browsing the web, this extension silently and efficiently extracts meta data about viewed pages and stores them in a database. Hosted on your own machine or at a cloud vendor of your choice, this database is entirely controlled by you. Use your indexed browsing history to re-discover previously viewed web-pages or share limited data with others.",
+	"update_url": "http://meo.my/crx/profile/updates",
+	"default_locale": "en",
+	"options_page": "/html/profile.html",
+	"background_page": "/html/background/background.html",
+	"page_action": {
+		"default_icon": "/images/scope16.png"
+	},
+	"content_scripts": [
+		{
+			"js": ["/js/libs/jquery/jquery-1.6.2.min.js", "/js/libs/jquery/plugins/jquery.url.js", "/js/app/common/messenger.js", "/js/app/common/common.js", "/js/app/content/c_common.js", "/js/libs/async.min.js", "/js/app/content/content_script.js"],
+			"matches": ["<all_urls>"]
+		}
+	],
+	//	"browser_action": {
+	//		"default_icon": "images/scope19.png",
+	//		"popup": "profile.html"
+	//	},
+
+	"permissions": ["background", "contextMenus", "unlimitedStorage", "tabs", "idle", "<all_urls>"
+		// popular Couch hosts in the cloud (delete lines as not required) 
+//		"http://*.iriscouch.com/",
+		// Free for modest usage. Sign up: http://www.iriscouch.com/service 
+//		"https://*.iriscouch.com/", 
+//		"https://cloudant.com/",
+		// Free up to 250Mb. Sign up: https://cloudant.com/#!/solutions/cloud/signup/oxygen 
+//		"http://*.nodejitsu.com/",	// Private Beta
+		// add your own couchdb hosts below
+
+		// Download and install CouchDB to your own server, PC or mobile device (Free): http://www.couchbase.com/downloads/couchbase-server/community
+		// local host 
+//		"http://127.0.0.1/", "http://localhost/",
+		// Plugins 
+//		"https://api.embed.ly/"],
+],
+	"incognito": "spanning",
+	"omnibox": {
+		"keyword": "meo"
+	},
+	"icons": {
+		"16": "/images/scope16.png",
+		"48": "/images/scope48.png",
+		"128": "/images/scope128.png"
+	}
+}
